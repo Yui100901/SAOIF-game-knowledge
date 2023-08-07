@@ -62,6 +62,7 @@ func (p *Parameters) CalculateAwakenDamage() float64 {
 
 // CalculateTotal 傷害計算
 func (p *Parameters) CalculateTotal() float64 {
+	p.CalculateTotalAttack()
 	if p.DamageRate <= 0 {
 		return 1
 	}
