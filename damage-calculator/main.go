@@ -3,7 +3,9 @@ package main
 import "math"
 
 type Parameters struct {
-	Attack           float64 //攻擊力
+	BaseAttack       float64 //基础攻擊力
+	AttackRate       float64 //攻擊加成
+	TotalAttack      float64 //縂攻擊力
 	SkillDamageRate  float64 //技能倍率
 	TargetDefense    float64 //目標防禦
 	AdditionalDamage float64 //追加傷害
@@ -13,13 +15,18 @@ type Parameters struct {
 	ChaosRate        float64 //混沌追憶
 }
 
+// CalculateTotalAttack 縂攻擊計算
+func (p *Parameters) CalculateTotalAttack() {
+	p.TotalAttack = math.Floor(p.BaseAttack * p.AttackRate)
+}
+
 // CalculateNormalDamage 普通傷害計算
 func (p *Parameters) CalculateNormalDamage() float64 {
 	if p.MarkDamageRate <= 0 {
 		return 1
 	}
 	//技能傷害
-	skillDamage := p.Attack*p.DamageRate - p.TargetDefense
+	skillDamage := p.TotalAttack*p.DamageRate - p.TargetDefense
 	if skillDamage <= 0 {
 		skillDamage = 1
 	}
@@ -45,7 +52,7 @@ func (p *Parameters) CalculateAwakenDamage() float64 {
 		return 0
 	}
 	//基礎傷害
-	baseDamage := math.Floor(p.Attack*p.DamageRate + p.AdditionalDamage)
+	baseDamage := math.Floor(p.TotalAttack*p.DamageRate + p.AdditionalDamage)
 	//增傷影響
 	damageRateEffected := math.Floor(baseDamage * p.DamageRate)
 	//覺醒影響

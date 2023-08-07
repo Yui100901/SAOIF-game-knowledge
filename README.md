@@ -1,2 +1,7 @@
 # SAOIF-game-knowledge
-Record SAOIF game knwoledge 
+
+This repository is used to record some knowledge 
+and tricks in the game SAOIF.
+
+You can use 'issue' to give me some advices.
+
