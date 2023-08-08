@@ -9,9 +9,16 @@ You can use 'issue' to give me some advices.
 
 你可以使用issue對我提出一些建議。
 
+Thank you for the information provided by SAOIF Discord group,
+whitch made it easier for me to complete these analyses.
+
+感謝SAOIF Discord群組以及群組中提供的信息，使得我更方便地完成這些分析。
+
+
+
 傷害分析：
 
-[DamageAnalysis](./damage-calculator/DamageAnalysis.md)
+[DamageAnalysis](./damage-calculator/md/DamageAnalysis.md)
 
 使用Go語言描述的傷害計算公式：
 
