@@ -4,7 +4,7 @@ import "math"
 
 type Parameters struct {
 	BaseAttack       float64 //基础攻擊力
-	AttackRate       float64 //攻擊加成
+	AttackRate       float64 //攻擊加成區間
 	TotalAttack      float64 //縂攻擊力
 	SkillDamageRate  float64 //技能倍率
 	TargetDefense    float64 //目標防禦
