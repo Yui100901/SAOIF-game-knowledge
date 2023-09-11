@@ -6,17 +6,23 @@
     怪物詞條有很多，這裏先列出常見的一些，後續可能繼續更新
     具體的測試過程就不給出了
 
-# 分析
+# 目錄
+
+* [一些常見詞條](#一常見詞條)
+* [特殊詞條](#二特殊詞條)
+
+
+## 一、常見詞條
 
 這裏列出幾個boss包含了常見詞條
 
 某次GoG的惡魔boss
 
-![1](monsterAttributesAnalysisImages/1.png)
+![1-1](monsterAttributesAnalysisImages/1-1.png)
 
 215冥黑白龍
 
-![2](monsterAttributesAnalysisImages/2.png)
+![1-2](monsterAttributesAnalysisImages/1-2.png)
 
 Weakness
 
@@ -52,11 +58,12 @@ bShapeCut_StrikeRate:
     正值表示抗性
     負值表示弱點增傷
 
-    曾經有出現過弱點額外增傷
+    有出現過弱點額外增傷
+    如75王就有對打弱點額外增傷
     如Weakness為打
-    且bShapeCut_StrikeRate:-20000
-    表示打弱點，額外增傷200%
-    則使用打屬性弱點時有250%增傷
+    且bShapeCut_StrikeRate:-10000
+    表示打弱點，額外增傷100%
+    則使用打屬性弱點時有150%增傷
 
     乘區：增傷區
 
@@ -101,4 +108,46 @@ bSub_PoisonRate:
 
     bSub_BurnRate: 5000則表示灼傷耐性100%
     則需玩家要150%概率才能保證造成灼傷
+
+## 二、特殊詞條
+
+### 特殊詞條1：bTakenDamage1
+
+兔子屬性
+
+![s1-1](monsterAttributesAnalysisImages/s1-1.png)
+
+    bTakenDamage1: 1
+    置傷害為1，單克為2，雙克為3
+
+    在雜燴兔上為固有屬性
+    有些boss的buff也有此效果
+
+### 特殊詞條2：bDefc
+
+5層幽靈小怪
+
+![s2-1](monsterAttributesAnalysisImages/s2-1.png)
+
+100王
+
+![s2-2](monsterAttributesAnalysisImages/s2-2.png)
+
+79王
+
+![s2-3](monsterAttributesAnalysisImages/s2-3.png)
+
+    bDefc:免傷
+    少部分怪物有該詞條
+
+    怪物該詞條會有特殊效果：
+    把防禦下降率轉換為對應比率增傷
+
+    乘區：獨立乘區
+
+該詞條特殊效果請見：
+
+[DefenseAnalysis](DefenceAnalysis.md)
+
+    
 

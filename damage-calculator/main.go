@@ -3,16 +3,19 @@ package main
 import "math"
 
 type Parameters struct {
-	BaseAttack       float64 //基础攻擊力
-	AttackRate       float64 //攻擊加成區間
-	TotalAttack      float64 //縂攻擊力
-	SkillDamageRate  float64 //技能倍率
-	TargetDefense    float64 //目標防禦
-	AdditionalDamage float64 //追加傷害
-	DamageRate       float64 //增傷區
-	MarkDamageRate   float64 //刻印增傷區
-	AwakenRate       float64 //覺醒率
-	ChaosRate        float64 //混沌追憶
+	BaseAttack          float64 //基础攻擊力
+	AttackRate          float64 //攻擊加成區間
+	TotalAttack         float64 //縂攻擊力
+	SkillDamageRate     float64 //技能倍率
+	TargetDefense       float64 //目標防禦
+	AdditionalDamage    float64 //追加傷害
+	DamageRate          float64 //增傷區
+	MarkDamageRate      float64 //刻印增傷區
+	AwakenRate          float64 //覺醒率
+	ChaosRate           float64 //混沌追憶
+	SpecialDefenceRate  float64 //特殊防禦
+	DefenceDecreaseRate float64 //目標防禦降低
+
 }
 
 // CalculateTotalAttack 縂攻擊計算
@@ -65,6 +68,12 @@ func (p *Parameters) CalculateTotal() float64 {
 	p.CalculateTotalAttack()
 	if p.DamageRate <= 0 {
 		return 1
+	}
+	if p.SpecialDefenceRate != 0 {
+		total := (p.CalculateNormalDamage() + p.CalculateAwakenDamage()) *
+			(1 - p.SpecialDefenceRate) *
+			(1 + p.DefenceDecreaseRate)
+		return total
 	}
 	total := p.CalculateNormalDamage() + p.CalculateAwakenDamage()
 	return total
