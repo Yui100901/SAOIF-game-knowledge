@@ -22,11 +22,11 @@ whitch made it easier for me to complete these analyses.
 
 防禦具體分析：
 
-[DamageAnalysis](./damage-calculator/md/DefenceAnalysis.md)
+[DefenceAnalysis](./damage-calculator/md/DefenceAnalysis.md)
 
 怪物詞條分析：
 
-[DamageAnalysis](./damage-calculator/md/MonsterAttributesAnalysis.md)
+[MonsterAttributesAnalysis](./damage-calculator/md/MonsterAttributesAnalysis.md)
 
 使用Go語言描述的傷害計算公式：
 
